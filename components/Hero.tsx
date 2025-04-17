@@ -69,7 +69,7 @@ const Hero = () => {
       {/* Contenido principal que aparece con animación desde la izquierda */}
       <div className="container mx-auto px-6 lg:px-16 py-20 md:py-32 pb-60 relative z-10">
         <div 
-          className={`max-w-3xl mt-[20vh] transition-all duration-1000 ease-out 
+          className={`max-w-8xl mt-[20vh] transition-all duration-1000 ease-out 
             ${scrolled 
               ? 'opacity-100 transform translate-x-0' 
               : 'opacity-0 transform -translate-x-32 pointer-events-none'
@@ -77,9 +77,9 @@ const Hero = () => {
         >
           <h1 
             ref={titleRef}
-            className="text-5xl md:text-7xl font-bold mb-8 tracking-tight transition-all duration-700 ease-out"
+            className="text-5xl md:text-7xl font-monument font-light mb-8 tracking-tight transition-all duration-700 ease-out"
           >
-            Somos el arte y la cultura que amamos
+            SOMOS EL ARTE Y LA CULTURA QUE AMAMOS
           </h1>
           <p 
             ref={subtitleRef}

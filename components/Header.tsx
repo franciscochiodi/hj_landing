@@ -57,31 +57,31 @@ const Header = () => {
         <nav className="hidden md:flex space-x-8">
           <Link 
             href="/" 
-            className="text-white font-medium hover:text-blue-300 transition-colors drop-shadow-sm"
+            className="text-white font-monument font-regular uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
           >
             Inicio
           </Link>
           <Link 
             href="/nosotros" 
-            className="text-white font-medium hover:text-blue-300 transition-colors drop-shadow-sm"
+            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
           >
             Sobre Nosotros
           </Link>
           <Link 
             href="/artistas" 
-            className="text-white font-medium hover:text-blue-300 transition-colors drop-shadow-sm"
+            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
           >
             Artistas
           </Link>
           <Link 
             href="/formatos" 
-            className="text-white font-medium hover:text-blue-300 transition-colors drop-shadow-sm"
+            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
           >
             Formatos
           </Link>
           <Link 
             href="/media" 
-            className="text-white font-medium hover:text-blue-300 transition-colors drop-shadow-sm"
+            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
           >
             Media
           </Link>
@@ -94,7 +94,8 @@ const Header = () => {
             bg-transparent border border-white 
             hover:bg-white/20 text-white 
             px-6 py-2 rounded-md 
-            transition-colors font-medium
+            font-monument font-light uppercase tracking-wide text-sm
+            transition-colors
             drop-shadow-sm
           "
         >

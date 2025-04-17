@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Journey - Video Placeholder</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #0a2463, #3e92cc);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .note {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .icon {
+            font-size: 64px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <div class="icon pulse">🎵</div>
+        <div class="logo">HOUSE JOURNEY</div>
+        <h1>Video Placeholder</h1>
+        <p>Este es un marcador de posición para el video de About Us</p>
+        <div class="note">
+            Para reemplazar este archivo HTML, descarga un video MP4 real y guárdalo como "about-video.mp4" en este directorio.
+        </div>
+    </div>
+</body>
+</html> 
