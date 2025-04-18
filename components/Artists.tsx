@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import Image from 'next/image';
 import artistsData from '@/data/artists.json';
 
 const Artists = () => {
@@ -158,14 +157,11 @@ const Artists = () => {
     >
       {/* Imagen de fondo con gradiente */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="w-full h-full relative">
-          <Image
+        <div className="w-full h-full">
+          <img
             src="/images/background-artistas.jpg"
             alt="Artistas Background"
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover object-center"
+            className="w-full h-full object-cover object-center"
           />
           
           {/* Gradiente principal para mayor legibilidad */}

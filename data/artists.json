@@ -1,173 +1,173 @@
 [
   {
-    "name": "RICARDO VILLALOBOS",
-    "tier": 1,
-    "country": "Chile/Alemania",
-    "bio": "Pionero del minimal house con sets maratónicos y producciones hipnóticas.",
-    "socialLink": "https://instagram.com/realricardistas",
-    "initialPosition": { "x": 51, "y": 12 },
-    "movementSpeed": { "x": 0.01, "y": -0.02 }
-  },
-  {
-    "name": "DELANO SMITH",
+    "name": "JOHN SUMMIT",
     "tier": 1,
     "country": "Estados Unidos",
-    "bio": "Pilar del deep house de Detroit, activo desde los 80 y maestro de la mezcla soulful.",
-    "socialLink": "https://instagram.com/delanosmithofficial",
-    "initialPosition": { "x": 32, "y": 77 },
-    "movementSpeed": { "x": -0.03, "y": 0.03 }
-  },
-  {
-    "name": "MOODYMANC",
-    "tier": 1,
-    "country": "Reino Unido",
-    "bio": "Veterano de Manchester con profundas raíces jazz y un estilo house crudo y percusivo.",
-    "socialLink": "https://instagram.com/moodymanc",
-    "initialPosition": { "x": 18, "y": 28 },
-    "movementSpeed": { "x": 0.02, "y": -0.01 }
-  },
-  {
-    "name": "ZIP",
-    "tier": 2,
-    "country": "Alemania",
-    "bio": "Cofundador de Perlon, icono del micro‑house berlinés y selector de culto.",
-    "socialLink": "https://instagram.com/zip_perlon",
-    "initialPosition": { "x": 74, "y": 20 },
-    "movementSpeed": { "x": -0.02, "y": 0.01 }
-  },
-  {
-    "name": "MOVE D",
-    "tier": 2,
-    "country": "Alemania",
-    "bio": "Productor y DJ que fusiona techno versátil con deep house cálido y melódico.",
-    "socialLink": "https://instagram.com/moved_dj",
-    "initialPosition": { "x": 43, "y": 61 },
-    "movementSpeed": { "x": 0.03, "y": -0.02 }
-  },
-  {
-    "name": "DJ SPRINKLES",
-    "tier": 2,
-    "country": "Estados Unidos",
-    "bio": "Proyecto de Terre Thaemlitz, deep house con aguda conciencia social y dramatismo atmosférico.",
-    "socialLink": "https://instagram.com/djsprinkles",
-    "initialPosition": { "x": 57, "y": 36 },
-    "movementSpeed": { "x": -0.02, "y": 0.02 }
-  },
-  {
-    "name": "MR. G",
-    "tier": 2,
-    "country": "Reino Unido",
-    "bio": "Leyenda del hardware en vivo, famoso por su groove analógico contundente.",
-    "socialLink": "https://instagram.com/mrg_dubman",
-    "initialPosition": { "x": 26, "y": 50 },
-    "movementSpeed": { "x": 0.01, "y": 0.02 }
-  },
-  {
-    "name": "PEGGY GOU",
-    "tier": 3,
-    "country": "Corea del Sur",
-    "bio": "Estrella global que conecta house noventero con toques pop y sello propio Gudu.",
-    "socialLink": "https://instagram.com/peggygou_",
-    "initialPosition": { "x": 81, "y": 44 },
-    "movementSpeed": { "x": -0.01, "y": -0.01 }
-  },
-  {
-    "name": "CHAOS IN THE CBD",
-    "tier": 3,
-    "country": "Nueva Zelanda",
-    "bio": "Dúo de hermanos que brinda deep house jazzy con sensibilidad contemporánea.",
-    "socialLink": "https://instagram.com/chaosinthecbd",
-    "initialPosition": { "x": 63, "y": 70 },
-    "movementSpeed": { "x": -0.02, "y": 0.01 }
-  },
-  {
-    "name": "HONEY DIJON",
-    "tier": 3,
-    "country": "Estados Unidos",
-    "bio": "Icono de Chicago que mezcla house clásico, moda y activismo LGBTIQ+.",
-    "socialLink": "https://instagram.com/honeydijon",
-    "initialPosition": { "x": 15, "y": 15 },
+    "bio": "Reconocido por su enérgico tech house y su presencia dominante en la escena global del house.",
+    "socialLink": "https://instagram.com/johnsummit",
+    "initialPosition": { "x": 25, "y": 30 },
     "movementSpeed": { "x": 0.02, "y": 0.03 }
   },
   {
-    "name": "ANTAL",
+    "name": "RAMPA",
+    "tier": 1,
+    "country": "Alemania",
+    "bio": "Figura clave del sello Keinemusik, conocido por su house melódico y profundo con influencias orgánicas.",
+    "socialLink": "https://instagram.com/rampa_keinemusik",
+    "initialPosition": { "x": 70, "y": 20 },
+    "movementSpeed": { "x": -0.03, "y": 0.02 }
+  },
+  {
+    "name": "GORGON CITY",
+    "tier": 1,
+    "country": "Reino Unido",
+    "bio": "Dúo británico famoso por su fusión única de house profundo, garage y elementos vocales cautivadores.",
+    "socialLink": "https://instagram.com/gorgoncity",
+    "initialPosition": { "x": 50, "y": 60 },
+    "movementSpeed": { "x": -0.02, "y": -0.01 }
+  },
+  {
+    "name": "DIPLO",
+    "tier": 2,
+    "country": "Estados Unidos",
+    "bio": "Productor versátil que ha llevado el house a nuevas audiencias globales con su proyecto Higher Ground.",
+    "socialLink": "https://instagram.com/diplo",
+    "initialPosition": { "x": 15, "y": 65 },
+    "movementSpeed": { "x": 0.01, "y": -0.02 }
+  },
+  {
+    "name": "NORA EN PURE",
+    "tier": 2,
+    "country": "Suiza",
+    "bio": "Reina del deep house melódico, conocida por sus composiciones elegantes y atmósferas naturales.",
+    "socialLink": "https://instagram.com/noraenpure",
+    "initialPosition": { "x": 80, "y": 40 },
+    "movementSpeed": { "x": -0.01, "y": 0.01 }
+  },
+  {
+    "name": "LANE 8",
+    "tier": 2,
+    "country": "Estados Unidos",
+    "bio": "Maestro del progressive house con un enfoque en viajes musicales emocionales y envolventes.",
+    "socialLink": "https://instagram.com/lane8music",
+    "initialPosition": { "x": 40, "y": 15 },
+    "movementSpeed": { "x": 0.01, "y": 0.02 }
+  },
+  {
+    "name": "SOLOMUN",
+    "tier": 2,
+    "country": "Alemania",
+    "bio": "Leyenda de Hamburgo, fundador de Diynamic y conocido por sus maratónicas sesiones de house melódico.",
+    "socialLink": "https://instagram.com/solomun",
+    "initialPosition": { "x": 65, "y": 70 },
+    "movementSpeed": { "x": -0.02, "y": -0.01 }
+  },
+  {
+    "name": "CAMELPHAT",
+    "tier": 3,
+    "country": "Reino Unido",
+    "bio": "Dúo británico que ha revolucionado la escena con su tech house innovador y colaboraciones memorables.",
+    "socialLink": "https://instagram.com/camelphat",
+    "initialPosition": { "x": 30, "y": 75 },
+    "movementSpeed": { "x": 0.01, "y": -0.01 }
+  },
+  {
+    "name": "&ME",
+    "tier": 3,
+    "country": "Alemania",
+    "bio": "Parte del colectivo Keinemusik, famoso por crear house melódico con profundidad emocional.",
+    "socialLink": "https://instagram.com/andmeandyou",
+    "initialPosition": { "x": 85, "y": 25 },
+    "movementSpeed": { "x": -0.01, "y": 0.01 }
+  },
+  {
+    "name": "ADAM PORT",
+    "tier": 3,
+    "country": "Alemania",
+    "bio": "Miembro de Keinemusik con un estilo único que fusiona house minimalista con elementos orgánicos.",
+    "socialLink": "https://instagram.com/adamport",
+    "initialPosition": { "x": 10, "y": 20 },
+    "movementSpeed": { "x": 0.01, "y": 0.01 }
+  },
+  {
+    "name": "TINLICKER",
     "tier": 3,
     "country": "Países Bajos",
-    "bio": "Fundador de Rush Hour, excavador de vinilos y curador de sets eclécticos.",
-    "socialLink": "https://instagram.com/antalrushhour",
-    "initialPosition": { "x": 50, "y": 90 },
+    "bio": "Dúo holandés que mezcla elementos de progressive house y deep house con influencias de Anjunadeep.",
+    "socialLink": "https://instagram.com/tinlicker",
+    "initialPosition": { "x": 55, "y": 85 },
     "movementSpeed": { "x": -0.01, "y": -0.02 }
   },
   {
-    "name": "FRED P",
+    "name": "POWEL",
     "tier": 4,
-    "country": "Estados Unidos",
-    "bio": "Conocido como Black Jazz Consortium, explora paisajes deep‑house espirituales.",
-    "socialLink": "https://instagram.com/fredp_resonance",
-    "initialPosition": { "x": 39, "y": 24 },
+    "country": "Alemania",
+    "bio": "Productor de house orgánico y melódico con influencias de música folclórica y elementos naturales.",
+    "socialLink": "https://instagram.com/powelmusic",
+    "initialPosition": { "x": 75, "y": 15 },
+    "movementSpeed": { "x": -0.02, "y": 0.01 }
+  },
+  {
+    "name": "KEVIN DE VRIES",
+    "tier": 4,
+    "country": "Alemania",
+    "bio": "Talento emergente en la escena del techno melódico y house progresivo con lanzamientos en Afterlife.",
+    "socialLink": "https://instagram.com/kevindevriesofficial",
+    "initialPosition": { "x": 20, "y": 50 },
+    "movementSpeed": { "x": 0.02, "y": 0 }
+  },
+  {
+    "name": "ADANA TWINS",
+    "tier": 4,
+    "country": "Alemania",
+    "bio": "Dúo de Hamburgo conocido por su sonido que fusiona el house clásico con elementos contemporáneos.",
+    "socialLink": "https://instagram.com/adanatwins",
+    "initialPosition": { "x": 60, "y": 35 },
+    "movementSpeed": { "x": -0.01, "y": 0.03 }
+  },
+  {
+    "name": "ANYMA",
+    "tier": 4,
+    "country": "Italia",
+    "bio": "Proyecto de Matteo Milleri de Tale Of Us que explora la fusión de música electrónica y arte digital.",
+    "socialLink": "https://instagram.com/anyma",
+    "initialPosition": { "x": 35, "y": 90 },
+    "movementSpeed": { "x": 0.01, "y": -0.02 }
+  },
+  {
+    "name": "MOCHAKK",
+    "tier": 5,
+    "country": "Brasil",
+    "bio": "Talento brasileño en ascenso que ha captado la atención global con su tech house energético.",
+    "socialLink": "https://instagram.com/mochakkmusic",
+    "initialPosition": { "x": 90, "y": 55 },
+    "movementSpeed": { "x": -0.01, "y": 0.01 }
+  },
+  {
+    "name": "HAMMOND",
+    "tier": 5,
+    "country": "Argentina",
+    "bio": "DJ y productor argentino que fusiona house, funk y sonidos latinoamericanos en su propuesta musical.",
+    "socialLink": "https://instagram.com/hammondmusic",
+    "initialPosition": { "x": 45, "y": 10 },
     "movementSpeed": { "x": 0.01, "y": 0.01 }
   },
   {
-    "name": "STEREOCITI",
-    "tier": 4,
-    "country": "Japón",
-    "bio": "Artista de Mojuba con un deep house minimalista impregnado de dub.",
-    "socialLink": "https://instagram.com/stereociti",
-    "initialPosition": { "x": 68, "y": 32 },
-    "movementSpeed": { "x": -0.02, "y": 0.02 }
+    "name": "DJ KOZE",
+    "tier": 5,
+    "country": "Alemania",
+    "bio": "Productor ecléctico y visionario que ha redefinido los límites del house con su enfoque experimental.",
+    "socialLink": "https://instagram.com/djkoze",
+    "initialPosition": { "x": 15, "y": 45 },
+    "movementSpeed": { "x": 0.02, "y": 0.01 }
   },
   {
-    "name": "OCTO OCTA",
-    "tier": 4,
-    "country": "Estados Unidos",
-    "bio": "Productora trans que combina breakbeats y house emotivo de raíces rave.",
-    "socialLink": "https://instagram.com/octoocta",
-    "initialPosition": { "x": 22, "y": 83 },
-    "movementSpeed": { "x": 0.03, "y": -0.02 }
-  },
-  {
-    "name": "DJ BORING",
-    "tier": 4,
+    "name": "CASSIAN",
+    "tier": 5,
     "country": "Australia",
-    "bio": "Figura del lo‑fi house que evoluciona hacia live sets ricos y bailables.",
-    "socialLink": "https://instagram.com/djboring92",
-    "initialPosition": { "x": 85, "y": 57 },
-    "movementSpeed": { "x": -0.03, "y": 0.01 }
-  },
-  {
-    "name": "YU SU",
-    "tier": 5,
-    "country": "Canadá",
-    "bio": "Compositora que hibrida house cósmico con texturas ambient y tradición china.",
-    "socialLink": "https://instagram.com/yusu_su",
-    "initialPosition": { "x": 46, "y": 10 },
-    "movementSpeed": { "x": 0.01, "y": 0.03 }
-  },
-  {
-    "name": "DAN SHAKE",
-    "tier": 5,
-    "country": "Reino Unido",
-    "bio": "Selector con chispa disco‑house y primer no‑detroitino en editar para Moodymann.",
-    "socialLink": "https://instagram.com/danshake",
-    "initialPosition": { "x": 12, "y": 42 },
-    "movementSpeed": { "x": 0.02, "y": -0.01 }
-  },
-  {
-    "name": "CROMBY",
-    "tier": 5,
-    "country": "Irlanda",
-    "bio": "Irlandés afincado en Berlín, mezcla acid‑house chispeante y melodías nostálgicas.",
-    "socialLink": "https://instagram.com/crombzz",
-    "initialPosition": { "x": 60, "y": 63 },
-    "movementSpeed": { "x": -0.01, "y": 0.02 }
-  },
-  {
-    "name": "KETTAMA",
-    "tier": 5,
-    "country": "Irlanda",
-    "bio": "Productor galwayense de house rave‑ready con energía alta y breaks 90s.",
-    "socialLink": "https://instagram.com/kettama_",
-    "initialPosition": { "x": 78, "y": 78 },
-    "movementSpeed": { "x": 0.01, "y": 0.01 }
+    "bio": "Productor, DJ y ingeniero australiano conocido por su house melódico y colaboraciones con RÜFÜS DU SOL.",
+    "socialLink": "https://instagram.com/cassian",
+    "initialPosition": { "x": 70, "y": 80 },
+    "movementSpeed": { "x": -0.01, "y": -0.01 }
   }
-]
+] 

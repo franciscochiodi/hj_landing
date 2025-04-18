@@ -90,14 +90,11 @@ const AboutUs = () => {
       className="relative py-24 overflow-hidden bg-azul-profundo text-white"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="w-full h-full relative">
-          <Image 
+        <div className="w-full h-full">
+          <img 
             src="/images/background-about.jpg" 
             alt="About Us Background" 
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover object-center brightness-110"
+            className="w-full h-full object-cover object-center brightness-110"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent mix-blend-multiply"></div>
         </div>
