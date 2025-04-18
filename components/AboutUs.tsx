@@ -109,11 +109,14 @@ const AboutUs = () => {
     >
       {/* Imagen de fondo similar al Hero */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="w-full h-full">
-          <img 
+        <div className="w-full h-full relative">
+          <Image 
             src="/images/background-about.jpg" 
             alt="About Us Background" 
-            className="w-full h-full object-cover object-center brightness-110"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover object-center brightness-110"
           />
           {/* Mismo gradiente lateral que usa el Hero */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent mix-blend-multiply"></div>

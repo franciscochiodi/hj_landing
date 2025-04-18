@@ -115,11 +115,14 @@ const Formats = () => {
     >
       {/* Imagen de fondo con gradiente */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="w-full h-full">
-          <img 
+        <div className="w-full h-full relative">
+          <Image 
             src="/images/background-formatos.jpg" 
             alt="Formatos Background" 
-            className="w-full h-full object-cover object-center"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover object-center"
           />
           
           {/* Gradiente principal para mayor legibilidad - ajustado para no tener transición superior */}

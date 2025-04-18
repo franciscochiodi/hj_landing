@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Image from 'next/image';
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -48,11 +49,14 @@ const Hero = () => {
     >
       {/* Imagen de fondo con efecto parallax sutil */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="bg-image w-full h-[135%] transition-transform duration-300">
-          <img 
+        <div className="bg-image w-full h-[135%] transition-transform duration-300 relative">
+          <Image 
             src="/images/hero-dj.jpg" 
             alt="House Journey Events" 
-            className="w-full h-full object-cover object-center brightness-110"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover object-center brightness-110"
           />
           {/* Gradiente lateral para mejorar legibilidad del texto */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent mix-blend-multiply"></div>
