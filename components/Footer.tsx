@@ -4,15 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Footer = () => {
-  // Estado para controlar la renderización del logo después de que el componente se haya montado en el cliente
-  const [isClient, setIsClient] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const currentYear = new Date().getFullYear();
 
-  // Establecer isClient a true después de que el componente se monte
   useEffect(() => {
-    setIsClient(true);
+    setMounted(true);
   }, []);
 
-  // Función para manejar el desplazamiento suave a las secciones
   const scrollToSection = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);
@@ -35,13 +33,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo y descripción corta */}
           <div className="md:col-span-2">
-            <div className="mb-4">
-              {/* Renderizamos el texto durante SSR y el logo durante CSR para evitar problemas de hidratación */}
-              {!isClient ? (
-                <h2 className="text-2xl font-bold mb-4">
-                  HOUSE<br />JOURNEY
-                </h2>
-              ) : (
+            <h2 className="text-2xl font-bold mb-4">
+              {mounted ? (
                 <div className="w-44 h-14 relative">
                   <Image 
                     src="/images/LogoBlanco.png"
@@ -52,8 +45,12 @@ const Footer = () => {
                     className="object-contain"
                   />
                 </div>
+              ) : (
+                <>
+                  HOUSE<br />JOURNEY
+                </>
               )}
-            </div>
+            </h2>
             <p className="text-gray-300 text-sm max-w-xs mt-2">
               
             </p>
@@ -165,7 +162,7 @@ const Footer = () => {
         {/* Footer inferior con copyright y enlaces legales */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-xs mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} House Journey. Todos los derechos reservados.
+            &copy; {currentYear} House Journey. Todos los derechos reservados.
           </p>
           <div className="flex space-x-6">
             <Link href="/privacidad" className="text-gray-400 hover:text-blue-300 transition-colors text-xs font-monument font-light">

@@ -9,70 +9,50 @@ const AboutUs = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
   const controls = useAnimation();
+  const [mounted, setMounted] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [videoError, setVideoError] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Animación al entrar en viewport
   useEffect(() => {
-    if (isInView) {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isInView && mounted) {
       controls.start('visible');
     }
-  }, [isInView, controls]);
+  }, [isInView, controls, mounted]);
 
-  // Efecto para reintentar cargar el video si hay error
   useEffect(() => {
-    // Resetear error cuando el componente se monta
+    if (!mounted) return;
     setVideoError(false);
     
-    // Log para depuración
-    console.log('AboutUs montado, videoError:', videoError);
-    
-    return () => {
-      console.log('AboutUs desmontado');
-    };
-  }, []);
-  
-  // Efecto para verificar el video una vez que el componente está montado
-  useEffect(() => {
-    // Set a timeout to fallback to image if video takes too long to load
     const videoTimeout = setTimeout(() => {
       if (!videoRef.current || !videoRef.current.readyState || videoRef.current.readyState < 2) {
-        console.log('Video loading timeout - switching to fallback');
         setVideoError(true);
       }
-    }, 5000); // 5 second timeout
+    }, 5000);
     
-    // Verificar si podemos acceder al video directamente
     const videoTest = document.createElement('video');
-    
-    // Si soporta el tipo de video MP4, intentaremos cargarlo
     const canPlayMP4 = videoTest.canPlayType('video/mp4');
-    console.log('¿Navegador soporta MP4?', canPlayMP4);
     
-    // Cargamos la URL del video para verificar si existe
     fetch('/videos/about-video.mp4', { method: 'HEAD' })
       .then(response => {
-        if (response.ok) {
-          console.log('El archivo de video existe y es accesible');
-        } else {
-          console.error('El archivo de video no se pudo encontrar', response.status);
+        if (!response.ok) {
           setVideoError(true);
         }
       })
-      .catch(err => {
-        console.error('Error verificando el video:', err);
+      .catch(() => {
         setVideoError(true);
       });
     
     return () => {
       clearTimeout(videoTimeout);
-      console.log('AboutUs desmontado');
     };
-  }, []);
+  }, [mounted]);
 
-  // Los 4 pilares con sus íconos y textos
   const pillars = [
     { icon: <MusicIcon />, label: 'MÚSICA', description: 'Que nos mantiene en marcha' },
     { icon: <ArtIcon />, label: 'ARTE', description: 'Como filosofía de vida' },
@@ -80,7 +60,6 @@ const AboutUs = () => {
     { icon: <AVIcon />, label: 'REGISTRO A/V', description: 'Para recordar cada momento' },
   ];
 
-  // Galería de imágenes
   const galleryImages = [
     { src: '/images/about-gallery-1.jpg', alt: 'Evento musical', title: 'CALIDEZ' },
     { src: '/images/about-gallery-2.jpg', alt: 'DJ en acción', title: 'CONEXIÓN' },
@@ -90,26 +69,17 @@ const AboutUs = () => {
     { src: '/images/about-gallery-6.jpg', alt: 'Detalle artístico', title: 'RITMO' },
   ];
 
-  // Manejador de error para el video
   const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
-    console.error('Error cargando video:', e);
     setVideoError(true);
   };
 
-  // Manejador para video cargado correctamente
   const handleVideoLoaded = () => {
-    console.log('Video cargado correctamente');
     setVideoError(false);
-    
-    // Intentar reproducir el video manualmente
     if (videoRef.current) {
-      videoRef.current.play().catch(err => {
-        console.error('Error reproduciendo video:', err);
-      });
+      videoRef.current.play().catch(() => {});
     }
   };
 
-  // Manejador para carga de imágenes
   const handleImageLoad = () => {
     setImagesLoaded(prev => prev + 1);
   };
@@ -119,7 +89,6 @@ const AboutUs = () => {
       ref={sectionRef}
       className="relative py-24 overflow-hidden bg-azul-profundo text-white"
     >
-      {/* Imagen de fondo similar al Hero */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="w-full h-full relative">
           <Image 
@@ -130,19 +99,18 @@ const AboutUs = () => {
             priority
             className="object-cover object-center brightness-110"
           />
-          {/* Mismo gradiente lateral que usa el Hero */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent mix-blend-multiply"></div>
         </div>
       </div>
       
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Columna de texto */}
           <motion.div 
             className="lg:w-1/2 text-white"
-            initial={{ opacity: 0, y: 40 }}
-            animate={controls}
+            initial="hidden"
+            animate={mounted ? controls : "hidden"}
             variants={{
+              hidden: { opacity: 0, y: 40 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
             }}
           >
@@ -151,7 +119,6 @@ const AboutUs = () => {
             Nuestras experiencias trascienden lo musical. La estética, el desarrollo técnico y la curaduría artística se fusionan con la calidez de nuestra comunidad y brindan un viaje a su interior. Cada vez que nos reunimos, celebramos re-conectar; con el cuerpo, con la pista, con el otro.
             </p>
             
-            {/* Contenedor de los pilares */}
             <div className="grid grid-cols-2 gap-6">
               {pillars.map((pillar, index) => (
                 <motion.div
@@ -179,12 +146,12 @@ const AboutUs = () => {
             </div>
           </motion.div>
           
-          {/* Columna de video */}
           <motion.div 
             className="lg:w-1/2 aspect-[9/16] relative"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={controls}
+            initial="hidden"
+            animate={mounted ? controls : "hidden"}
             variants={{
+              hidden: { opacity: 0, scale: 0.95 },
               visible: { 
                 opacity: 1, 
                 scale: 1, 
@@ -223,7 +190,6 @@ const AboutUs = () => {
                     />
                   </video>
                   
-                  {/* Enlace para la página de diagnóstico */}
                   <div className="absolute bottom-2 right-2 z-10">
                     <a 
                       href="/videos/video.html" 
@@ -261,13 +227,11 @@ const AboutUs = () => {
                 </div>
               )}
               
-              {/* Overlay con gradiente sutil */}
               <div className="absolute inset-0 bg-gradient-to-t from-primary-darker/60 to-transparent pointer-events-none"></div>
             </div>
           </motion.div>
         </div>
 
-        {/* Galería de imágenes */}
         <motion.div
           className="mt-24"
           initial={{ opacity: 0, y: 40 }}
@@ -323,7 +287,6 @@ const AboutUs = () => {
           </div>
         </motion.div>
 
-        {/* Modal de imagen seleccionada */}
         {selectedImage && (
           <div 
             className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 fade-in"
@@ -354,9 +317,6 @@ const AboutUs = () => {
         )}
       </div>
       
-      {/* Quitamos los elementos decorativos que teníamos antes ya que ahora usamos el mismo estilo que el Hero */}
-      
-      {/* Elementos decorativos flotantes como en el Hero */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-[30%] right-[15%] w-20 h-20 rounded-full bg-white/20 blur-xl animate-float-slow"></div>
         <div className="absolute top-[70%] left-[10%] w-32 h-32 rounded-full bg-white/10 blur-xl animate-float-medium"></div>
