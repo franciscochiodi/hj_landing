@@ -211,11 +211,15 @@ const Formats = () => {
               }}
             >
               <div className="aspect-video relative overflow-hidden rounded-2xl shadow-2xl border border-white/10">
-                <div className="w-full h-full bg-azul-profundo/20 backdrop-blur-sm">
-                  <img
+                <div className="w-full h-full bg-azul-profundo/20 backdrop-blur-sm relative">
+                  <Image
                     src={formatos[activeFormat].image}
                     alt={`${formatos[activeFormat].title} - House Journey`}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority={true}
+                    quality={85}
+                    className="object-cover"
                   />
                 </div>
                 
@@ -339,10 +343,13 @@ const Formats = () => {
               }}
             >
               <div className="w-full h-full relative">
-                <img 
+                <Image 
                   src={formatos[formato].image}
                   alt={formatos[formato].title}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  quality={75}
+                  className="object-cover"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-br ${formatos[formato].color} opacity-40`}></div>
                 <div className="absolute inset-0 flex items-center justify-center">

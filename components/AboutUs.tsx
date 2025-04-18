@@ -36,6 +36,14 @@ const AboutUs = () => {
   
   // Efecto para verificar el video una vez que el componente está montado
   useEffect(() => {
+    // Set a timeout to fallback to image if video takes too long to load
+    const videoTimeout = setTimeout(() => {
+      if (!videoRef.current || !videoRef.current.readyState || videoRef.current.readyState < 2) {
+        console.log('Video loading timeout - switching to fallback');
+        setVideoError(true);
+      }
+    }, 5000); // 5 second timeout
+    
     // Verificar si podemos acceder al video directamente
     const videoTest = document.createElement('video');
     
@@ -44,7 +52,7 @@ const AboutUs = () => {
     console.log('¿Navegador soporta MP4?', canPlayMP4);
     
     // Cargamos la URL del video para verificar si existe
-    fetch('/videos/about-video.mp4')
+    fetch('/videos/about-video.mp4', { method: 'HEAD' })
       .then(response => {
         if (response.ok) {
           console.log('El archivo de video existe y es accesible');
@@ -57,7 +65,11 @@ const AboutUs = () => {
         console.error('Error verificando el video:', err);
         setVideoError(true);
       });
-      
+    
+    return () => {
+      clearTimeout(videoTimeout);
+      console.log('AboutUs desmontado');
+    };
   }, []);
 
   // Los 4 pilares con sus íconos y textos
@@ -197,12 +209,18 @@ const AboutUs = () => {
                     poster="/images/about-video-poster.jpg"
                     onError={handleVideoError}
                     onCanPlay={handleVideoLoaded}
-                    preload="auto"
+                    preload="metadata"
                     key="video-player"
                   >
                     <source src="/videos/about-video.mp4" type="video/mp4" />
                     <source src="/videos/about-video.webm" type="video/webm" />
-                    <p>Tu navegador no soporta videos HTML5.</p>
+                    <Image 
+                      src="/images/about-video-poster.jpg"
+                      alt="Video fallback"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
                   </video>
                   
                   {/* Enlace para la página de diagnóstico */}
@@ -218,12 +236,29 @@ const AboutUs = () => {
                   </div>
                 </>
               ) : (
-                <iframe 
-                  src="/videos/about-video.html" 
-                  title="Video placeholder"
-                  className="w-full h-full border-0 fullheight"
-                  allowFullScreen
-                ></iframe>
+                <div className="relative w-full h-full">
+                  <Image 
+                    src="/images/about-video-poster.jpg" 
+                    alt="Video placeholder"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <a 
+                      href="/videos/about-video.mp4" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-black/50 backdrop-blur-sm rounded-lg text-white flex items-center gap-2"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                      Ver video
+                    </a>
+                  </div>
+                </div>
               )}
               
               {/* Overlay con gradiente sutil */}
@@ -268,10 +303,13 @@ const AboutUs = () => {
                 }}
               >
                 <div className="aspect-[4/3] relative bg-azul-profundo/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10">
-                  <img
+                  <Image
                     src={image.src}
                     alt={image.alt}
-                    className={`lazy-load ${imagesLoaded > index ? 'lazy-loaded' : ''} w-full h-full object-cover`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={80}
+                    className={`object-cover ${imagesLoaded > index ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
                     loading="lazy"
                     onLoad={handleImageLoad}
                   />
@@ -291,14 +329,19 @@ const AboutUs = () => {
             className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 fade-in"
             onClick={() => setSelectedImage(null)}
           >
-            <div className="relative max-w-5xl max-h-[90vh]">
-              <img 
-                src={selectedImage} 
-                alt="Imagen ampliada" 
-                className="max-w-full max-h-[90vh] object-contain"
-              />
+            <div className="relative max-w-5xl max-h-[90vh] w-full h-full">
+              <div className="relative w-full h-full">
+                <Image 
+                  src={selectedImage} 
+                  alt="Imagen ampliada" 
+                  fill
+                  sizes="100vw"
+                  quality={85}
+                  className="object-contain"
+                />
+              </div>
               <button 
-                className="absolute top-4 right-4 text-white text-xl bg-black/50 w-10 h-10 rounded-full flex items-center justify-center"
+                className="absolute top-4 right-4 text-white text-xl bg-black/50 w-10 h-10 rounded-full flex items-center justify-center z-10"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedImage(null);
