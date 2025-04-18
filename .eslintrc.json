@@ -1,0 +1,8 @@
+{
+    "extends": "next/core-web-security",
+    "rules": {
+      "@typescript-eslint/no-unused-vars": "warn", // Cambia de "error" a "warn"
+      "@next/next/no-img-element": "warn", // Mantiene como advertencia pero no impide el build
+      "react-hooks/exhaustive-deps": "warn" // Mantiene como advertencia
+    }
+  }

@@ -1,76 +1,53 @@
-import React from "react";
+'use client';
 
-type Artist = {
-  name: string;
-  role: string;
-  description: string;
-};
+import { useEffect, useRef } from 'react';
+import { motion, useAnimation, useInView } from 'framer-motion';
 
 const Artists = () => {
-  const artists: Artist[] = [
-    {
-      name: "DJ Nombre",
-      role: "DJ / Productor",
-      description:
-        "Especializado en ritmos electrónicos con influencias orgánicas y primitivas.",
-    },
-    {
-      name: "Nombre Artístico",
-      role: "Performance Visual",
-      description:
-        "Crea experiencias visuales inmersivas que conectan con las raíces de la humanidad.",
-    },
-    {
-      name: "Otro Nombre",
-      role: "Músico / Performer",
-      description:
-        "Fusiona instrumentos tradicionales con tecnología para crear paisajes sonoros únicos.",
-    },
-    {
-      name: "Cuarto Artista",
-      role: "Diseñador de Experiencias",
-      description:
-        "Transforma espacios en mundos sensoriales donde la naturaleza y tecnología convergen.",
-    },
-  ];
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
+  const controls = useAnimation();
+
+  // Animación al entrar en viewport
+  useEffect(() => {
+    if (isInView) {
+      controls.start('visible');
+    }
+  }, [isInView, controls]);
 
   return (
-    <section id="artists" className="py-16 md:py-24 bg-gris-claro/30">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center text-azul-profundo">
-          Nuestros Artistas
-        </h2>
-        <p className="text-xl text-center mb-12 max-w-3xl mx-auto text-gray-700">
-          Talentos que comparten nuestra visión de fusionar lo primitivo y lo
-          tecnológico
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {artists.map((artist, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div className="bg-azul-grisaceo h-48 rounded-md mb-4 flex items-center justify-center">
-                <span className="text-white">Foto de {artist.name}</span>
-              </div>
-              <h3 className="text-xl font-bold mb-1 text-azul-profundo">
-                {artist.name}
-              </h3>
-              <p className="text-terracota font-medium mb-2">{artist.role}</p>
-              <p className="text-gray-600">{artist.description}</p>
-            </div>
-          ))}
+    <section 
+      ref={sectionRef}
+      className="relative py-24 overflow-hidden bg-azul-profundo text-white"
+      id="artistas"
+    >
+      {/* Imagen de fondo con gradiente */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="w-full h-full">
+          <img 
+            src="/images/background-artists.jpg" 
+            alt="Artistas Background" 
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-transparent mix-blend-multiply"></div>
         </div>
-
-        <div className="text-center mt-12">
-          <a
-            href="#contact"
-            className="inline-block bg-terracota hover:bg-terracota/80 text-white px-6 py-3 rounded font-medium transition-colors"
-          >
-            Contrata Nuestros Artistas
-          </a>
-        </div>
+      </div>
+      
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        {/* Encabezado de la sección */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={controls}
+          variants={{
+            visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
+          }}
+        >
+          <h2 className="font-monument text-3xl md:text-5xl mb-4">ARTISTAS</h2>
+          <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            Próximamente anunciaremos los artistas que formarán parte de nuestros próximos eventos.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

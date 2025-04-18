@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import Image from 'next/image';
+import { MusicIcon, ArtIcon, FoodIcon, AVIcon } from '../public/icons/Icons';
 
 const AboutUs = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -61,20 +62,20 @@ const AboutUs = () => {
 
   // Los 4 pilares con sus íconos y textos
   const pillars = [
-    { emoji: '🎶', label: 'Música', description: 'Selección premium de artistas internacionales' },
-    { emoji: '🎨', label: 'Arte', description: 'Experiencias inmersivas y colaborativas' },
-    { emoji: '🍽️', label: 'Gastronomía', description: 'Sabores curados para cada momento' },
-    { emoji: '🌅', label: 'Escenarios', description: 'Locaciones inspiradoras y únicas' },
+    { icon: <MusicIcon />, label: 'MÚSICA', description: 'Que nos mantiene en marcha' },
+    { icon: <ArtIcon />, label: 'ARTE', description: 'Como filosofía de vida' },
+    { icon: <FoodIcon />, label: 'GASTRONOMÍA', description: 'Para involucrar cada sentido' },
+    { icon: <AVIcon />, label: 'REGISTRO A/V', description: 'Para recordar cada momento' },
   ];
 
   // Galería de imágenes
   const galleryImages = [
-    { src: '/images/about-gallery-1.jpg', alt: 'Evento musical', title: 'Eventos Exclusivos' },
-    { src: '/images/about-gallery-2.jpg', alt: 'DJ en acción', title: 'DJs Internacionales' },
-    { src: '/images/about-gallery-3.jpg', alt: 'Público disfrutando', title: 'Experiencias Únicas' },
-    { src: '/images/about-gallery-4.jpg', alt: 'Escenario/venue', title: 'Escenarios Impactantes' },
-    { src: '/images/about-gallery-5.jpg', alt: 'Experiencia gastronómica', title: 'Gastronomía Selecta' },
-    { src: '/images/about-gallery-6.jpg', alt: 'Detalle artístico', title: 'Arte Inmersivo' },
+    { src: '/images/about-gallery-1.jpg', alt: 'Evento musical', title: 'CALIDEZ' },
+    { src: '/images/about-gallery-2.jpg', alt: 'DJ en acción', title: 'CONEXIÓN' },
+    { src: '/images/about-gallery-3.jpg', alt: 'Público disfrutando', title: 'EXPRESIÓN' },
+    { src: '/images/about-gallery-4.jpg', alt: 'Escenario/venue', title: 'VIBRACIÓN' },
+    { src: '/images/about-gallery-5.jpg', alt: 'Experiencia gastronómica', title: 'COMUNIDAD' },
+    { src: '/images/about-gallery-6.jpg', alt: 'Detalle artístico', title: 'RITMO' },
   ];
 
   // Manejador de error para el video
@@ -104,9 +105,22 @@ const AboutUs = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-24 bg-gradient-to-b from-azul-profundo to-primary-darker overflow-hidden"
+      className="relative py-24 overflow-hidden bg-azul-profundo text-white"
     >
-      <div className="container mx-auto px-6 lg:px-8">
+      {/* Imagen de fondo similar al Hero */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="w-full h-full">
+          <img 
+            src="/images/background-about.jpg" 
+            alt="About Us Background" 
+            className="w-full h-full object-cover object-center brightness-110"
+          />
+          {/* Mismo gradiente lateral que usa el Hero */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent mix-blend-multiply"></div>
+        </div>
+      </div>
+      
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Columna de texto */}
           <motion.div 
@@ -117,7 +131,7 @@ const AboutUs = () => {
               visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
             }}
           >
-            <h2 className="font-monument text-3xl md:text-4xl mb-6">CREAMOS EXPERIENCIAS QUE TRASCIENDEN</h2>
+            <h2 className="font-monument text-3xl md:text-4xl mb-6">DONDE LA MÚSICA Y EL ARTE SE VUELVEN HOGAR</h2>
             <p className="text-lg text-gray-200 mb-10 leading-relaxed">
             Nuestras experiencias trascienden lo musical. La estética, el desarrollo técnico y la curaduría artística se fusionan con la calidez de nuestra comunidad y brindan un viaje a su interior. Cada vez que nos reunimos, celebramos re-conectar; con el cuerpo, con la pista, con el otro.
             </p>
@@ -127,7 +141,7 @@ const AboutUs = () => {
               {pillars.map((pillar, index) => (
                 <motion.div
                   key={pillar.label}
-                  className="glass-card p-5"
+                  className="glass-card p-5 bg-white/5 border border-white/10 rounded-lg flex flex-col items-center text-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={controls}
                   variants={{
@@ -142,8 +156,8 @@ const AboutUs = () => {
                     }
                   }}
                 >
-                  <div className="text-3xl mb-2">{pillar.emoji}</div>
-                  <h3 className="text-xl font-semibold mb-1">{pillar.label}</h3>
+                  <div className="mb-3 flex justify-center">{pillar.icon}</div>
+                  <h3 className="text-xl font-monument font-light uppercase mb-1">{pillar.label}</h3>
                   <p className="text-sm text-gray-300">{pillar.description}</p>
                 </motion.div>
               ))}
@@ -224,7 +238,7 @@ const AboutUs = () => {
             visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] } }
           }}
         >
-          <h2 className="font-monument text-3xl md:text-4xl mb-8 text-white text-center">NUESTRA GALERÍA</h2>
+          <h2 className="font-monument text-3xl md:text-4xl mb-8 text-white text-center">NUESTRA ESENCIA</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
@@ -250,17 +264,17 @@ const AboutUs = () => {
                   transition: { duration: 0.3 }
                 }}
               >
-                <div className="aspect-[4/3] relative">
+                <div className="aspect-[4/3] relative bg-azul-profundo/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className={`lazy-load ${imagesLoaded > index ? 'lazy-loaded' : ''}`}
+                    className={`lazy-load ${imagesLoaded > index ? 'lazy-loaded' : ''} w-full h-full object-cover`}
                     loading="lazy"
                     onLoad={handleImageLoad}
                   />
-                  <div className="gallery-overlay"></div>
-                  <div className="gallery-caption">
-                    <h3 className="text-xl font-semibold">{image.title}</h3>
+                  <div className="gallery-overlay absolute inset-0 bg-azul-profundo/30 hover:bg-azul-profundo/10 transition-all duration-300"></div>
+                  <div className="gallery-caption absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 className="text-xl font-monument font-light text-white uppercase">{image.title}</h3>
                   </div>
                 </div>
               </motion.div>
@@ -294,10 +308,13 @@ const AboutUs = () => {
         )}
       </div>
       
-      {/* Elemento decorativo de fondo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-20 blur-3xl pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-action-blue/20 rounded-full transform -translate-x-1/4"></div>
-        <div className="absolute bottom-0 right-0 w-3/4 h-3/4 bg-azul-profundo/30 rounded-full"></div>
+      {/* Quitamos los elementos decorativos que teníamos antes ya que ahora usamos el mismo estilo que el Hero */}
+      
+      {/* Elementos decorativos flotantes como en el Hero */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-[30%] right-[15%] w-20 h-20 rounded-full bg-white/20 blur-xl animate-float-slow"></div>
+        <div className="absolute top-[70%] left-[10%] w-32 h-32 rounded-full bg-white/10 blur-xl animate-float-medium"></div>
+        <div className="absolute bottom-[20%] right-[25%] w-24 h-24 rounded-full bg-azul-claro/20 blur-xl animate-float-fast"></div>
       </div>
     </section>
   );

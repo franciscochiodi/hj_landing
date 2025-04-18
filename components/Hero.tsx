@@ -44,11 +44,11 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative bg-azul-profundo text-white overflow-hidden min-h-[140vh] flex items-center"
+      className="relative bg-azul-profundo text-white overflow-hidden min-h-[120vh] flex items-center"
     >
       {/* Imagen de fondo con efecto parallax sutil */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="bg-image w-full h-[150%] transition-transform duration-300">
+        <div className="bg-image w-full h-[135%] transition-transform duration-300">
           <img 
             src="/images/hero-dj.jpg" 
             alt="House Journey Events" 
@@ -67,9 +67,9 @@ const Hero = () => {
       </div>
       
       {/* Contenido principal que aparece con animación desde la izquierda */}
-      <div className="container mx-auto px-6 lg:px-16 py-20 md:py-32 pb-60 relative z-10">
+      <div className="container mx-auto px-6 lg:px-16 py-20 md:py-28 pb-36 relative z-10">
         <div 
-          className={`max-w-8xl mt-[20vh] transition-all duration-1000 ease-out 
+          className={`max-w-8xl mt-[18vh] transition-all duration-1000 ease-out 
             ${scrolled 
               ? 'opacity-100 transform translate-x-0' 
               : 'opacity-0 transform -translate-x-32 pointer-events-none'

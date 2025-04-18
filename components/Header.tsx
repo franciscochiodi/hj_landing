@@ -28,6 +28,23 @@ const Header = () => {
     };
   }, []);
 
+  // Función para manejar el desplazamiento suave a las secciones
+  const scrollToSection = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    
+    if (section) {
+      // Calcular la posición de desplazamiento teniendo en cuenta el header
+      const offset = 100; // Ajusta este valor según la altura de tu header
+      const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <header 
       className={`
@@ -55,36 +72,41 @@ const Header = () => {
         
         {/* Navegación */}
         <nav className="hidden md:flex space-x-8">
-          <Link 
-            href="/" 
-            className="text-white font-monument font-regular uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
+          <a 
+            href="#inicio" 
+            onClick={scrollToSection('inicio')}
+            className="text-white font-monument font-regular uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm cursor-pointer"
           >
             Inicio
-          </Link>
-          <Link 
-            href="/nosotros" 
-            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
+          </a>
+          <a 
+            href="#nosotros" 
+            onClick={scrollToSection('nosotros')}
+            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm cursor-pointer"
           >
             Sobre Nosotros
-          </Link>
-          <Link 
-            href="/artistas" 
-            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
-          >
-            Artistas
-          </Link>
-          <Link 
-            href="/formatos" 
-            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
+          </a>
+          <a 
+            href="#formatos" 
+            onClick={scrollToSection('formatos')}
+            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm cursor-pointer"
           >
             Formatos
-          </Link>
-          <Link 
-            href="/media" 
-            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm"
+          </a>
+          <a 
+            href="#artistas" 
+            onClick={scrollToSection('artistas')}
+            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm cursor-pointer"
+          >
+            Artistas
+          </a>
+          <a 
+            href="#media" 
+            onClick={scrollToSection('media')}
+            className="text-white font-monument font-light uppercase tracking-wide text-sm hover:text-blue-300 transition-colors drop-shadow-sm cursor-pointer"
           >
             Media
-          </Link>
+          </a>
         </nav>
         
         {/* Botón de tickets */}
